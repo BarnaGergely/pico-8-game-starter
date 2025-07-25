@@ -1,4 +1,4 @@
-# Contributing to PICO-8 Game
+Mor# Contributing to PICO-8 Game
 
 This document provides guidelines for developers who want to work on this project.
 
@@ -12,8 +12,19 @@ This document provides guidelines for developers who want to work on this projec
 
 ### Windows Setup
 
-1. Install .. and ... VSCode extensions
-2. In the `.vscode/settings.json` file set pico-8 runner and cart location
+1. Install [PICO-8](https://www.lexaloffle.com/pico-8.php)
+2. Install [Git](https://git-scm.com/downloads) with default settings
+3. Install [Visual Studio Code](https://code.visualstudio.com/)
+4. Restart your computer
+5. Install the following VSCode extensions:
+   - [PICO-8 Language Server](https://marketplace.visualstudio.com/items?itemName=pollywoggames.pico8-ls)
+   - [PICO-8 Runner](https://marketplace.visualstudio.com/items?itemName=crowoncrowbar.pico8-runner)
+6. Clone the repository
+6. In the `.vscode/settings.json` file set PICO-8 runner (path to `pico8.exe`) and cart location (path to your PICO-8 cart in the `src/` folder)
+
+### LUA Setup
+
+If you want to `#include` `.lua` files, you should set up the VSCode LUA support for PICO-8! [More info here](https://www.lexaloffle.com/bbs/?tid=53227)
 
 ### Development environment features
 
