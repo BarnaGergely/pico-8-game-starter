@@ -10,9 +10,12 @@ This document provides guidelines for developers who want to work on this projec
 - Git for version control
 - Visual Studio Code for advanced code editing and version control
 
-### Setup
+### Windows Setup
 
-TODO:
+1. Install .. and ... VSCode extensions
+2. In the `.vscode/settings.json` file set pico-8 runner and cart location
+
+### Development environment features
 
 ## Project Structure
 
@@ -36,14 +39,17 @@ TODO:
 - Maximum one game concept per file when possible
 
 #### Code Style
-- Use **snake_case** for variables and functions: `player_speed`, `update_enemies()`
-- Use **UPPER_CASE** for constants: `MAX_HEALTH`, `SCREEN_WIDTH`
-- Keep functions small and focused (remember the token limit!)
-- Add comments for complex logic or algorithms
+- Use **small, but descriptive names** to keep the code readable on the PICO-8 console
+    - Use abridgments, but keep it readable and consistent: `plr` for player, `upd` for update
+- Use **lowercase** for all code, comments, and file names
+- Use **snake_case**, if you want to separate words: `plr_speed`, `upd_enemies(input)`
+- Add comments for:
+    - every variable: `-- player speed in pixels per frame`
+    - functions, complex logic and algorithms: `-- update enemies position based on absolute coordinates in pixels`
 
 #### Naming Conventions
-- **Variables**: `player_x`, `enemy_count`, `is_jumping`
-- **Functions**: `init_game()`, `update_player()`, `draw_ui()`
+- **Variables**: `plr_x`, `enemy_count`, `is_jumping`
+- **Functions**: `init_game()`, `upd_plr()`, `draw_ui()`
 - **Sprites**: Use descriptive names in sprite editor
 - **Maps**: `level_1`, `menu_bg`, `tileset_main`
 - **Sound Effects**: `sfx_jump`, `sfx_coin`, `sfx_enemy_hit`
@@ -59,6 +65,7 @@ TODO:
 ### Version Control
 
 #### Commit Guidelines
+
 - Use clear, descriptive commit messages
 - Start with a verb in present tense: "Add player movement", "Fix collision bug"
 - Keep commits focused on single changes
