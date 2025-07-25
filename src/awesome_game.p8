@@ -7,8 +7,8 @@ __lua__
 
 -- constants --
 
--- the constants is used
--- to store the identifier
+-- constants are used
+-- to store the identifiers
 -- of the game elements
 -- such as colors, sprites, flags, etc.
 -- to make it easier to access them.
@@ -38,8 +38,8 @@ spr_plr = 1 -- player sprite
 spr_enemy = 2 -- enemy sprite
 
 -- flag constants --
-flg_solid = 0 -- solid, like a wall
-flg_hurts = 1 -- enemy, bullet, hurts player on contact
+flg_sld = 0 -- solid flag: like a wall
+flg_hrt = 1 -- hurts flag: enemy, bullet
 
 
 -- initialize game variables
