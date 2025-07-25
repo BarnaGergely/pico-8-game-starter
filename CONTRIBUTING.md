@@ -1,18 +1,29 @@
-Mor# Contributing to PICO-8 Game
+    Mor# Contributing to PICO-8 Game
 
 This document provides guidelines for developers who want to work on this project.
 
 ## Getting Started
 
+### Development environment features
+
+- **PICO-8 Language Server**: Provides syntax highlighting, code completion, and linting for PICO-8 code (`.p8` files).
+- **PICO-8 Runner**: Allows you to run PICO-8 carts directly from VSCode on the payed version of PICO-8 console.
+    - To run the cart, use the command palette (`Ctrl+Shift+P` or `Ctrl+F1`) and select `PICO-8: Run Cart`.
+    - If you don't have the payed version, you can still edit the code and run it on the PICO-8 [education edition web player](https://www.pico-8-edu.com/).
+        - Simply drag and drop the edited `.p8` file into the [web player](https://www.pico-8-edu.com/) and run `RUN` command.
+- **Git Integration**: Use the Source Control panel in VSCode to manage your commits, branches, and pull requests.
+
 ### Prerequisites
 
-- [PICO-8](https://www.lexaloffle.com/pico-8.php) (licensed version recommended, but education edition also works)
+- [PICO-8](https://www.lexaloffle.com/pico-8.php)
+    - To use the PICO-8 Runner, licensed payed version required
+    - [Education edition](https://www.pico-8-edu.com/) also works, fully functional and free, but not as convenient
 - Git for version control
-- Visual Studio Code for advanced code editing and version control
+- Visual Studio Code for advanced code editing and git user interface
 
 ### Windows Setup
 
-1. Install [PICO-8](https://www.lexaloffle.com/pico-8.php)
+1. Install [PICO-8](https://www.lexaloffle.com/pico-8.php), if you bought it
 2. Install [Git](https://git-scm.com/downloads) with default settings
 3. Install [Visual Studio Code](https://code.visualstudio.com/)
 4. Restart your computer
@@ -25,8 +36,6 @@ This document provides guidelines for developers who want to work on this projec
 ### LUA Setup
 
 If you want to `#include` `.lua` files, you should set up the VSCode LUA support for PICO-8! [More info here](https://www.lexaloffle.com/bbs/?tid=53227)
-
-### Development environment features
 
 ## Project Structure
 
