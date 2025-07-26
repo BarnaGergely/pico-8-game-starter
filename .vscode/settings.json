@@ -4,4 +4,14 @@
     "files.autoSave": "afterDelay",
     "pico8runner.pico8Path": "C:\\Program Files (x86)\\PICO-8\\pico8.exe",
     "pico8runner.cartridgePath": "src/awesome_game.p8",
+    "[pico-8]": {
+        "editor.rulers": [
+            32,
+        ]
+    },
+    "[pico-8-lua]": {
+        "editor.rulers": [
+            32,
+        ]
+    },
 }
