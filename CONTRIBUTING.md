@@ -1,12 +1,41 @@
-    Mor# Contributing to PICO-8 Game
+# Contributing to PICO-8 Game
 
 This document provides guidelines for developers who want to work on this project.
 
 ## Getting Started
 
+### PICO-8 Tutorials and Resources
+
+#### PICO-8 Game Development
+
+- [Best basic video tutorial for beginners by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Course/)
+- Detailed tutorials about specific topics
+    - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
+    - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
+- [Official documentation](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
+- [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
+- [Best payed full course](https://www.spacecatdev.com/pico-8-noob-to-pro)
+
+#### Game design
+
+- [Game Design and Theory course by the creator of The Sims](https://www.masterclass.com/classes/will-wright-teaches-game-design-and-theory)
+- [So You Wanna Make Games?? by Riot Games (creators of LoL)](https://youtube.com/playlist?list=PL42m9XiTqPHJdJuVXO6Vf5ta5D07peiVx&si=171pL1Boisbcf1SO)
+- [Game Design 101 by Game Maker's Toolkit](https://youtube.com/playlist?list=PLc38fcMFcV_vToz9Nvc_YQTNH8hkIQ2uC&si=ih-Mx9b9tYN6kyml)
+- [Game Maker's Toolkit free courses](https://www.youtube.com/@GMTK/playlists)
+- [Udemy payed video courses](https://www.udemy.com/courses/design/game-design/)
+
+#### Pixel art
+
+- [Very basics in 10 mins](https://youtu.be/v-ibXM3xBjg?si=2HXMc35Ripf5cBTM)
+- [Pixel Art Classes by AdamCYounis](https://www.youtube.com/playlist?list=PLLdxW--S_0h4dlWUpl-TzBp-ulqK3NiM_)
+- [Pixel Art 101 by Peter Milko](https://youtube.com/playlist?list=PLmac3HPrav-9UWt-ahViIZxpyQxJ2wPSH&si=VeD5pankdu5uyZeV)
+- [Udemy payed video courses](https://www.udemy.com/topic/pixel-art/)
+- [SpaceCat's pixel art course](https://www.spacecatdev.com/pixel-art-for-game-devs)
+
 ### Development environment features
 
-- **PICO-8 Language Server**: Provides syntax highlighting, code completion, and linting for PICO-8 code (`.p8` files).
+- **Visual Studio Code**: A powerful code editor with many features for developers.
+- **PICO-8 Language Server**: Provides syntax highlighting, code completion, and linting for PICO-8 code (for `.p8` files).
 - **PICO-8 Runner**: Allows you to run PICO-8 carts directly from VSCode on the payed version of PICO-8 console.
     - To run the cart, use the command palette (`Ctrl+Shift+P` or `Ctrl+F1`) and select `PICO-8: Run Cart`.
     - If you don't have the payed version, you can still edit the code and run it on the PICO-8 [education edition web player](https://www.pico-8-edu.com/).
@@ -36,6 +65,14 @@ This document provides guidelines for developers who want to work on this projec
 ### LUA Setup
 
 If you want to `#include` `.lua` files, you should set up the VSCode LUA support for PICO-8! [More info here](https://www.lexaloffle.com/bbs/?tid=53227)
+
+### Commiting summary
+
+1. Make sure your code is working
+2. Save you game (.p8) into the `src/` folder
+3. On the left side of VSCode, click on the Source Control icon (`Ctrl+Shift+G`)
+4. Write a descriptive commit message
+5. Click the `Commit` button and then `Push` to upload your changes
 
 ## Project Structure
 
