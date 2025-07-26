@@ -4,8 +4,12 @@ __lua__
 -- awesome game
 -- by chuck norris
 
+-- This tab is for:
+-- standalone code and init function
+-- this code runs before game starts
 
--- constants --
+
+-- standalone constants --
 
 -- constants are used
 -- to store the identifiers
@@ -42,22 +46,34 @@ flg_sld = 0 -- solid flag: like a wall
 flg_hrt = 1 -- hurts flag: enemy, bullet
 
 
+-- standalone variables --
+
+-- standalone variables are used to
+-- to store data which not resets
+-- when the game is reseted
+-- such as highscores
+
+highscore = 0 -- highscore
+
+
 -- initialize game variables
 -- and setup game
--- (called once at startup)
+-- (called once at startup and reset)
 function _init()
-
+    -- starting variables --
+    score = 0 -- current score
 end
 
-
--- update game logic
--- and handle input
+-->8
+-- This tab is for:
+-- update game logic, handle input
 -- (called 60 times per second)
 function _update()
 
 end
 
-
+-->8
+-- This tab is for:
 -- draw graphics to the screen
 -- (called after each update)
 function _draw()
