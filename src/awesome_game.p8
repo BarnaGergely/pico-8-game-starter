@@ -72,14 +72,22 @@ highscore = 0 --highscore
 --(called once at startup and reset)
 function _init()
 	--starting variables --
-	score = 0
-	--current score
-	plr = {
-		--player object
+	score = 0 --current score
+	plr = { --player object
 		x = c_scr.center, --player x coordinate
 		y = c_scr.center, --player y coordinate
+		dx = 0, --player x speed (delta x)
+		dy = 0, --player y speed (delta y)
+		dx_max = 2, --player max x speed
+		dy_max = 2, --player max y speed
+		acc = 0.5, --player acceleration
+		boost = 4, --jump speed boost
+		w = 8, --player width
+		h = 8, --player height
+		flip_x = false, --player sprite flipped horizontally
+		flip_y = false, --player sprite flipped vertically
 		spr = c_spr.plr, --player sprite
-		health = 3 --player health
+		anim = 0, --player animation timing
 	}
 end
 
@@ -120,7 +128,9 @@ end
 --(called after each update)
 function _draw()
 	cls(c_clr.blk) --clear the screen with black
-	spr(plr.spr, plr.x, plr.y) --draw player sprite
+	map(0, 0) --draw the map
+	spr(plr.spr, plr.x, plr.y, plr.w/8, plr.h/8, plr.flip_x, plr.flip_y) --draw player sprite
+	-- TODO: why we need to divide width and height by 8?
 end
 
 __gfx__
