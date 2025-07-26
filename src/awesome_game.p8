@@ -8,7 +8,6 @@ __lua__
 -- standalone code and init function
 -- this code runs before game starts
 
-
 -- standalone constants --
 
 -- constants are used
@@ -20,31 +19,44 @@ __lua__
 -- todo: customize constants
 
 -- color constants --
-clr_blk = 0 -- black
-clr_drk_blu = 1 -- dark blue
-clr_drk_purp = 2 -- dark purple
-clr_drk_grn = 3 -- dark green
-clr_brn = 4 -- brown
-clr_drk_grey = 5 -- dark grey
-clr_lt_grey = 6 -- light grey
-clr_wht = 7 -- white
-clr_red = 8 -- red
-clr_orng = 9 -- orange
-clr_yel = 10 -- yellow
-clr_grn = 11 -- green
-clr_blu = 12 -- blue
-clr_ind = 13 -- indigo
-clr_pink = 14 -- pink
-clr_peach = 15 -- peach
+c_clr = {
+	blk = 0, -- black
+	drk_blu = 1, -- dark blue
+	drk_purp = 2, -- dark purple
+	drk_grn = 3, -- dark green
+	brn = 4, -- brown
+	drk_grey = 5, -- dark grey
+	lt_grey = 6, -- light grey
+	wht = 7, -- white
+	red = 8, -- red
+	orng = 9, -- orange
+	yel = 10, -- yellow
+	grn = 11, -- green
+	blu = 12, -- blue
+	ind = 13, -- indigo
+	pink = 14, -- pink
+	peach = 15 -- peach
+}
 
 -- sprite constants --
-spr_plr = 1 -- player sprite
-spr_enemy = 2 -- enemy sprite
+c_spr = {
+	plr = 0, -- player sprite
+	enemy = 1 -- enemy sprite
+}
 
 -- flag constants --
-flg_sld = 0 -- solid flag: like a wall
-flg_hrt = 1 -- hurts flag: enemy, bullet
+c_flg = {
+	sld = 0, -- solid flag: like a wall
+	hrt = 1 -- hurts flag: enemy, bullet
+}
 
+-- screen constants --
+c_scr = {
+	min = 0, -- min coordinate in the screen
+	max = 127, -- max coordinate in the screen
+	width = 128, -- screen width
+	center = 127 / 2 -- center coordinate in the screen
+}
 
 -- standalone variables --
 
@@ -55,13 +67,20 @@ flg_hrt = 1 -- hurts flag: enemy, bullet
 
 highscore = 0 -- highscore
 
-
 -- initialize game variables
 -- and setup game
 -- (called once at startup and reset)
 function _init()
-    -- starting variables --
-    score = 0 -- current score
+	-- starting variables --
+	score = 0
+	-- current score
+	plr = {
+		-- player object
+		x = c_scr.center, -- player x coordinate
+		y = c_scr.center, -- player y coordinate
+		spr = c_spr.plr, -- player sprite
+		health = 3 -- player health
+	}
 end
 
 -->8
@@ -69,7 +88,30 @@ end
 -- update game logic, handle input
 -- (called 60 times per second)
 function _update()
+	handle_input()
+end
 
+-- handle user input
+function handle_input(speed)
+	speed = speed or 1 -- set default speed if no speed is provided
+	if btn(⬅️) then -- left pressed
+		plr.x = plr.x - speed
+	end
+	if btn(➡️) then -- right pressed
+		plr.x = plr.x + speed
+	end
+	if btn(⬆️) then -- up pressed
+		plr.y = plr.y - speed
+	end
+	if btn(⬇️) then -- down pressed
+		plr.y = plr.y + speed
+	end
+	if btn(❎) then -- X pressed
+		-- perform action, e.g. shoot or interact
+	end
+	if btn(🅾️) then -- O pressed
+		-- perform action
+	end
 end
 
 -->8
@@ -77,13 +119,16 @@ end
 -- draw graphics to the screen
 -- (called after each update)
 function _draw()
-    cls(clr_blk) -- clear the screen with black
-    print("game is ready")
+	cls(c_clr.blk) -- clear the screen with black
+	spr(plr.spr, plr.x, plr.y) -- draw player sprite
 end
+
 __gfx__
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-00700700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-00077000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-00077000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-00700700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+0cccccc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+c000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+0cccccc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

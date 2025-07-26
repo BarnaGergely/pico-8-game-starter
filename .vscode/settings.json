@@ -7,11 +7,15 @@
     "[pico-8]": {
         "editor.rulers": [
             32,
-        ]
+        ],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
     },
     "[pico-8-lua]": {
         "editor.rulers": [
             32,
-        ]
+        ],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
     },
 }
