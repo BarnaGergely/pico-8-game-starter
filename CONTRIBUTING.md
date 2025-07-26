@@ -12,7 +12,8 @@ This document provides guidelines for developers who want to work on this projec
 - Detailed tutorials about specific topics
     - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
     - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
-- [Official documentation](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
+- [Official manual](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
+- [More user-friendly documentation](https://nerdyteachers.com/PICO-8/Guide/)
 - [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
 - [Best payed full course](https://www.spacecatdev.com/pico-8-noob-to-pro)
 
@@ -103,6 +104,8 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 - Add comments for:
     - every variable: `-- player speed in pixels per frame`
     - functions, complex logic and algorithms: `-- update enemies position based on absolute coordinates in pixels`
+- Comments, tabulation, spaces are free, so use them generously
+    - Its easier to write a few extra lines of comments, than to remember what the code does after a few weeks
 
 #### Naming Conventions
 - **Variables**: `plr_x`, `enemy_count`, `is_jumping`
