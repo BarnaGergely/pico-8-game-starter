@@ -15,18 +15,22 @@ function rect_map_collision( r, flag )
   
   for x=left,right do
     for y=top,bottom do
-      if fget(mget(x,y), flag) then
+      if map_collision(x,y,flag) then
         return true
       end
     end
   end
   return false
 end
+
+function map_collision( tile_x, tile_y, flag )
+  return fget( mget(tile_x,tile_y), flag )
+end
 ```
 
 ### 1. How it Works?
 
-#### Preparing Coordinates
+#### Storing Rectangle Coordinates
 
 First, we need an easy way to store the coordinates and dimensions of a rectangle that represents our game object. We can do that with a [table](../Guide/create_tables) that stores X, Y, width, and height variables. The rectangle table is what the above function expects.
 
@@ -34,31 +38,31 @@ It would be created like this:
 
 ```lua
 --create object table for a rectangle
-player = { x=20, y=30, w=8, h=8 }
+r = { x=20, y=30, w=8, h=8 }
 ```
 
 Now we have a rectangle at coordinates `X` and `Y`, with a width of `w` and a height of `h`. To get the value of the player's `x`, we use `player.x`. ([See Table Shorthand](about:blank/Guide/Tables#shorthand))
 
 ```lua
 --get value out of object table
-print( player.x )  --prints 20
+print( r.x )  --prints 20
 ```
 
 #### Converting Rectangle to Tile Coordinates
 
-Since the map uses tile coordinates (each tile is 8x8 pixels), we need to convert the rectangle's pixel coordinates to tile coordinates. We need to find which tiles the rectangle spans across.
+Since the map uses tile coordinates (each tile is 8x8 pixels), we need to convert the rectangle's pixel coordinates to tile coordinates. You can find more info in the [Map and Flags Collision guide](https://nerdyteachers.com/PICO-8/Collision/98). We need to find which tiles the rectangle spans across.
 
 For the rectangle's bounds, we calculate:
 
 ```lua
 --convert rectangle bounds to tile coordinates
-left = r.x\8              --leftmost tile
-right = (r.x+r.w-1)\8     --rightmost tile  
-top = r.y\8               --topmost tile
-bottom = (r.y+r.h-1)\8    --bottommost tile
+left = r.x\8           --leftmost tile
+right = (r.x+r.w-1)\8  --rightmost tile  
+top = r.y\8            --topmost tile
+bottom = (r.y+r.h-1)\8 --bottommost tile
 ```
 
-The `-1` in the width and height calculations ensures we don't include an extra tile when the rectangle's edge aligns exactly with a tile boundary.
+The `-1` in the width and height calculations ensures we don't include an extra tile when the rectangle's edge aligns exactly with a tile boundary. The `\` operator performs division and rounding down in one step.
 
 #### Checking Multiple Tiles
 
@@ -152,18 +156,20 @@ function rect_map_collision( r, flag )
   
   for x=left,right do
     for y=top,bottom do
-      if fget(mget(x,y), flag) then
+      if map_collision(x,y,flag) then
         return true
       end
     end
   end
   return false
 end
+
+function map_collision( tile_x, tile_y, flag )
+  return fget( mget(tile_x,tile_y), flag )
+end
 ```
 
-This works the same way as the expanded version but combines the sprite retrieval and flag checking into a single line. The `mget(x,y)` gets the sprite number at those coordinates, and `fget(sprite, flag)` immediately checks if that sprite has the target flag.
-
-The nested loops ensure we check every tile the rectangle touches, and we return `true` as soon as we find any tile with the target flag, making it efficient for most collision scenarios.
+This works the same way as the expanded version but uses a separate `map_collision` function created in the [Collision: Map and Flags tutorial](https://nerdyteachers.com/PICO-8/Collision/98) to check if a specific tile has the target flag. This keeps the rectangle collision function cleaner and allows for easier reuse of the tile checking logic. The nested loops ensure we check every tile the rectangle touches, and we return `true` as soon as we find any tile with the target flag, making it efficient for most collision scenarios.
 
 ### 2. When to Use this?
 
@@ -183,18 +189,23 @@ For scenarios where the rectangle is at least as large as the smallest tile, che
 ```lua
 function rect_map_collision_fast( r, flag )
   local corners = {
-    {r.x\8, r.y\8},                    --top-left
-    {(r.x+r.w-1)\8, r.y\8},            --top-right
-    {r.x\8, (r.y+r.h-1)\8},            --bottom-left
-    {(r.x+r.w-1)\8, (r.y+r.h-1)\8}     --bottom-right
+    --list of rectangle corners in tile coordinates
+    {x=r.x\8, y=r.y\8},                --top-left
+    {x=(r.x+r.w-1)\8, y=r.y\8},        --top-right
+    {x=r.x\8, y=(r.y+r.h-1)\8},        --bottom-left
+    {x=(r.x+r.w-1)\8, y=(r.y+r.h-1)\8} --bottom-right
   }
   
   for corner in all(corners) do
-    if fget(mget(corner[1], corner[2]), flag) then
+    if map_collision(corner.x, corner.y, flag) then
       return true
     end
   end
   return false
+end
+
+function map_collision( tile_x, tile_y, flag )
+  return fget( mget(tile_x,tile_y), flag )
 end
 ```
 
