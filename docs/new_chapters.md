@@ -238,9 +238,9 @@ By handling each axis independently, the player can move along one axis even if 
 --returns true if rectangle is inside the boundary
 function rect_boundary_collision(r, b)
   return r.x < b.min_x or
-         b.max_x < r.x + r.w or
-         r.y < b.min_y or
-         b.max_y < r.y + r.h
+        flr(r.x + r.w - 1) > b.max_x or
+        r.y < b.min_y or
+        flr(r.y + r.h - 1) > b.max_y
 end
 ```
 
