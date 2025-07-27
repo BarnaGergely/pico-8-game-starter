@@ -231,6 +231,19 @@ end
 
 By handling each axis independently, the player can move along one axis even if blocked on the other, allowing them to "slide" along walls when moving diagonally, creating smoother movement feel.
 
+## Rectangle to boundary
+
+```lua
+--check if rectangle collides with a boundary
+--returns true if rectangle is inside the boundary
+function rect_boundary_collision(r, b)
+  return r.x < b.min_x or
+         b.max_x < r.x + r.w or
+         r.y < b.min_y or
+         b.max_y < r.y + r.h
+end
+```
+
 ## Continous Rectangle to Rectangle - Hit Library
 
 Hit is one of the smallest advanced collision detection library. It provides reliable collision detection for fastly moving rectangles.
