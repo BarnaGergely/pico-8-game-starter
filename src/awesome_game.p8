@@ -18,7 +18,7 @@ __lua__
 
 --todo: customize constants
 
---color constants--
+--color constants
 c_clr = {
 	blk = 0, --black
 	drk_blu = 1, --dark blue
@@ -38,25 +38,36 @@ c_clr = {
 	peach = 15 --peach
 }
 
---sprite constants--
+--sprite constants
 c_spr = {
 	plr = 0, --player sprite
 	enemy = 1 --enemy sprite
 }
 
---flag constants--
+--flag constants
 c_flg = {
 	sld = 0, --solid flag: like a wall
 	hrt = 1 --hurts flag: enemy, bullet
 }
 
---screen constants--
+--screen constants
 c_scr = {
 	min = 0, --min coordinate in the screen
 	max = 127, --max coordinate in the screen
 	width = 128, --screen width
 	center = 127 / 2 --center coordinate in the screen
 }
+
+--Screen boundary constants
+bnd_scr = {
+	min_x = c_scr.min,
+	max_x = c_scr.max,
+	min_y = c_scr.min,
+	max_y = c_scr.max
+}
+
+c_gravity = 0.3 --gravity constant
+c_friction = 0.1 --friction constant
 
 --standalone variables--
 
@@ -66,6 +77,7 @@ c_scr = {
 --such as highscores
 
 highscore = 0 --highscore
+debug_message = "" --debug message
 
 --initialize game variables
 --and setup game
@@ -96,30 +108,95 @@ end
 --update game logic, handle input
 --(called 60 times per second)
 function _update()
-	handle_input()
+	handle_controls()
+	handle_plr_movement()
 end
 
---handle button presses
-function handle_input(speed)
+--handle button presses (controls)
+function handle_controls(speed)
 	speed = speed or 1 --set default speed if no speed is provided
 	if btn(⬅️) then --left pressed
-		plr.x = plr.x - speed
+		plr.dx -= plr.acc
+		plr.flip_x = true
 	end
 	if btn(➡️) then --right pressed
-		plr.x = plr.x + speed
+		plr.dx += plr.acc
+		plr.flip_x = false
 	end
 	if btn(⬆️) then --up pressed
-		plr.y = plr.y - speed
+		plr.dy -= plr.acc
+		plr.flip_y = true
 	end
 	if btn(⬇️) then --down pressed
-		plr.y = plr.y + speed
+		plr.dy += plr.acc
+		plr.flip_y = false
 	end
 	if btn(❎) then --X pressed
-		--perform action, e.g. shoot or interact
+		--perform action, e.g. shoot, jump or interact
 	end
 	if btn(🅾️) then --O pressed
-		--perform action
+		--perform jump
+		plr.dy -= plr.acc * plr.boost
 	end
+end
+
+function handle_plr_movement()
+	--apply friction
+	plr.dx = approach(plr.dx, 0, c_friction)
+	plr.dy = approach(plr.dy, 0, c_friction)
+
+	--apply gravity
+	plr.dy += c_gravity
+
+	--limit player speed
+	plr.dx = mid(-plr.dx_max, plr.dx, plr.dx_max)
+	plr.dy = mid(-plr.dy_max, plr.dy, plr.dy_max)
+
+	-- if the next position is out of bounds,
+	-- then stop the player
+
+	--Check X boundary separately
+    local next_x_pos = {
+        x = plr.x + plr.dx,
+        y = plr.y,
+        w = plr.w,
+        h = plr.h
+    }
+    if rect_boundary_collision(next_x_pos, c_bnd_scr) then
+        plr.dx = 0
+    end
+
+    --Check Y boundary separately  
+    local next_y_pos = {
+        x = plr.x,
+        y = plr.y + plr.dy,
+        w = plr.w,
+        h = plr.h
+    }
+    if rect_boundary_collision(next_y_pos, c_bnd_scr) then
+        plr.dy = 0
+    end
+
+	--update player position
+	plr.x += plr.dx
+	plr.y += plr.dy
+end
+
+function rect_boundary_collision(r, b)
+    return r.x < b.min_x or
+         flr(r.x + r.w - 1) > b.max_x or
+         r.y < b.min_y or
+         flr(r.y + r.h - 1) > b.max_y
+end
+
+--approach function
+--approaches val1 to val2 by amount
+function approach(val1, val2, amount)
+    if (val1 < val2) then
+        return min(val1 + amount, val2)
+    else
+        return max(val1 - amount, val2)
+    end
 end
 
 -->8
@@ -130,7 +207,18 @@ function _draw()
 	cls(c_clr.blk) --clear the screen with black
 	map(0, 0) --draw the map
 	vis_hitbox(plr)
+	local scr_hitbox = {
+		x = c_scr.min,
+		y = c_scr.min,
+		w = c_scr.width,
+		h = c_scr.width
+	}
+	vis_hitbox(scr_hitbox, c_clr.pink) --visualize screen boundaries
 	spr(plr.spr, plr.x, plr.y, plr.w/8, plr.h/8, plr.flip_x, plr.flip_y) --draw player sprite
+	--draw debug message
+	if debug_message ~= "" then
+		print(debug_message, 0, 100, c_clr.wht) --print debug message at (0, 100)
+	end
 	-- TODO: why we need to divide width and height by 8?
 end
 
