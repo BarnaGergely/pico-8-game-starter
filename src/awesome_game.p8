@@ -129,8 +129,21 @@ end
 function _draw()
 	cls(c_clr.blk) --clear the screen with black
 	map(0, 0) --draw the map
+	vis_hitbox(plr)
 	spr(plr.spr, plr.x, plr.y, plr.w/8, plr.h/8, plr.flip_x, plr.flip_y) --draw player sprite
 	-- TODO: why we need to divide width and height by 8?
+end
+
+--visualize rectangle hitbox
+--(for debugging purposes)
+function vis_hitbox(obj, clr)
+	clr = clr or c_clr.pink --set default color if no color is provided
+
+	--show pixels in the corners of the rectangle
+	pset(obj.x, obj.y, clr) --top-left corner
+	pset(obj.x + obj.w - 1, obj.y, clr) --top-right corner
+	pset(obj.x, obj.y + obj.h - 1, clr) --bottom-left corner
+	pset(obj.x + obj.w - 1, obj.y + obj.h - 1, clr) --bottom-right corner
 end
 
 __gfx__
