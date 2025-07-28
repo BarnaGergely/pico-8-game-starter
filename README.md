@@ -1,38 +1,46 @@
-# pico-8-game-starter
+# Retro Pico-8 Platformer Starter Template
 
-game
+This project is a **simple yet extensible platformer game starter** built for the PICO-8 fantasy console. It includes the core structure and basic mechanics required to quickly build and iterate on a classic retro-style platformer.
 
-Interesting description
+This README provides **context for GitHub Copilot** and other AI-assisted tools to help generate relevant and consistent code suggestions while working in this repo.
 
-GIFs
+## Gameplay Overview
+
+This is a side-scrolling pixel-art platformer prototype where the player can move left and right, jump, crouch. The game uses a tile-based map and animated sprites. All characters and tiles are 8×8 pixels. The screen is 128×128 pixels, allowing for a small but detailed game world.
+
+## Core Mechanics
+
+- **Left/Right Movement** with smooth acceleration and friction
+- **Jumping** with gravity and basic physics
+- **Wall Collisions** (horizontal and vertical)
+- **Map-based Levels** using PICO-8's built-in map editor
+- **Simple Animation System** for walking, idling, crouching
 
 ## Controls
 
-- Dpad (Arrow Keys)
-    - Move
-- X Button (X or M or V Key)
-    - Hold X Button and Dpad: Turn
-    - Release X Button: Generate or Remove Ice
-- O Button (Z or N or C Key)
-    - Undo (Not possible at some levels)
-- Pause Menu (Enter or P Key)
-    - Retry
-    - Select Level
-    - Delete Save Data
+- **D-Pad (Arrow Keys)**  
+  - `←`: Move left  
+  - `→`: Move right  
+  - `↑`: Look up (show a special upward looking sprite)  
+  - `↓`: Crouch / squat (show a special crouching and shrink the hitbox sprite)
 
-## Rules or Goal
+- **O Button (Z / N / C key)**  
+  - Jump
+- **X Button (X / M / V key)**  
+  - not used yet
 
-## Tips & Hints
+## Project Structure
 
-## Credits
+- `src/`: Contains the main game code.
+- `docs/`: Contains documentations, references, tutorials and examples.
 
-## Version History
+## Notes for Copilot
 
-## Tools used
-
-- PICO-8
-- Visual Studio Code
-    - pollywoggames.pico8-ls
-    - crowoncrowbar.pico8-runner
-- Shrink08
-- Renoiser
+- Use PICO-8 Lua syntax.
+- Use docs and examples as references from the `docs` folder.
+  - Use the official PICO-8 documentation as a reference in the `docs\pico-8_manual.txt` file.
+  - There are many simmilar platformer games source code avaliable in the `docs\examples` folder. Use them as a reference.
+  - Use the tutorials in the `docs` folder for collision detection!
+- Write easy-to-read, maintainable code for beginners.
+- Use descriptive variable and function names.
+- Keep functions small and modular.
