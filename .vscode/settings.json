@@ -20,11 +20,20 @@
     },
     "Lua.runtime.version": "LuaJIT",
     "Lua.workspace.checkThirdParty": false,
+    "Lua.diagnostics.globals": [
+        "⬅️",
+        "➡️",
+        "⬆️",
+        "⬇️",
+        "❎",
+        "🅾️"
+    ],
     "Lua.diagnostics.disable": [
         "lowercase-global",
         "undefined-doc-name",
         "err-esc"
     ],
+    "Lua.runtime.unicodeName": true,
     "Lua.runtime.nonstandardSymbol": [
         "!=",
         "+=",
