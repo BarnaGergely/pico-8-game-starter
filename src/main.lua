@@ -1,4 +1,3 @@
-
 --This tab is for:
 --standalone code and init function
 --this code runs before game starts
@@ -127,7 +126,7 @@ function handle_controls(speed)
 		plr.flip_y = false
 	end
 	if btn(❎) then --X pressed
-		--perform action, e.g. shoot, jump or interact
+		--perform action, e.g. shoot or  interact
 	end
 	if btn(🅾️) then --O pressed
 		--perform jump
