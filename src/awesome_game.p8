@@ -59,7 +59,7 @@ c_scr = {
 }
 
 --Screen boundary constants
-bnd_scr = {
+c_bnd_scr = {
 	min_x = c_scr.min,
 	max_x = c_scr.max,
 	min_y = c_scr.min,
@@ -143,7 +143,6 @@ end
 function handle_plr_movement()
 	--apply friction
 	plr.dx = approach(plr.dx, 0, c_friction)
-	plr.dy = approach(plr.dy, 0, c_friction)
 
 	--apply gravity
 	plr.dy += c_gravity
@@ -152,10 +151,28 @@ function handle_plr_movement()
 	plr.dx = mid(-plr.dx_max, plr.dx, plr.dx_max)
 	plr.dy = mid(-plr.dy_max, plr.dy, plr.dy_max)
 
-	-- if the next position is out of bounds,
-	-- then stop the player
+	handle_boundary_collision()
 
-	--Check X boundary separately
+	handle_map_collision()
+
+	--update player position
+	plr.x += plr.dx
+	plr.y += plr.dy
+end
+
+function handle_map_collision()
+end
+
+function handle_boundary_collision()
+	--if the next position is
+	--out of bounds,
+	--then stop the player
+
+	--The two sides of the boundary
+	--are checked separately
+	--to allow diagonal movement
+
+    -- Check X boundary separately
     local next_x_pos = {
         x = plr.x + plr.dx,
         y = plr.y,
@@ -166,7 +183,7 @@ function handle_plr_movement()
         plr.dx = 0
     end
 
-    --Check Y boundary separately  
+    -- Check Y boundary separately
     local next_y_pos = {
         x = plr.x,
         y = plr.y + plr.dy,
@@ -176,10 +193,6 @@ function handle_plr_movement()
     if rect_boundary_collision(next_y_pos, c_bnd_scr) then
         plr.dy = 0
     end
-
-	--update player position
-	plr.x += plr.dx
-	plr.y += plr.dy
 end
 
 function rect_boundary_collision(r, b)
