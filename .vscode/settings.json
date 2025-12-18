@@ -1,21 +1,39 @@
 {
     "git.autofetch": true,
-    "git.confirmSync": false,
     "files.autoSave": "afterDelay",
     "pico8runner.pico8Path": "C:\\Program Files (x86)\\PICO-8\\pico8.exe",
     "pico8runner.cartridgePath": "src/awesome_game.p8",
+    "line-length-checker.lineLength": 32,
+    "line-length-checker.blacklist": [
+        "**/*.md",
+        "**/*.txt",
+        "**/*.json",
+        "**/*.js",
+        "**/*.ts",
+        "**/*.py",
+        "**/*.lua",
+        "**/*.html",
+        "**/*.css",
+        "**/*.xml",
+        "**/*.yml",
+        "**/*.yaml"
+    ],
     "[pico-8]": {
         "editor.rulers": [
-            32,
+            32
         ],
+        "editor.detectIndentation": false,
+        "editor.defaultFormatter": "PollywogGames.pico8-ls",
         "editor.tabSize": 4,
-        "editor.insertSpaces": true
+        "editor.insertSpaces": false
     },
     "[pico-8-lua]": {
         "editor.rulers": [
-            32,
+            32
         ],
+        "editor.detectIndentation": false,
+        "editor.defaultFormatter": "PollywogGames.pico8-ls",
         "editor.tabSize": 4,
-        "editor.insertSpaces": true
+        "editor.insertSpaces": false
     },
 }
