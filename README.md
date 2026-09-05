@@ -1,6 +1,6 @@
-# pico-8-game-starter
+# PICO-8 game Starter Template
 
-game
+game name
 
 Interesting description
 
@@ -9,16 +9,16 @@ GIFs
 ## Controls
 
 - Dpad (Arrow Keys)
-    - Move
+  - Move
 - X Button (X or M or V Key)
-    - Hold X Button and Dpad: Turn
-    - Release X Button: Generate or Remove Ice
+  - Hold X Button and Dpad: Turn
+  - Release X Button: Generate or Remove Ice
 - O Button (Z or N or C Key)
-    - Undo (Not possible at some levels)
+  - Undo (Not possible at some levels)
 - Pause Menu (Enter or P Key)
-    - Retry
-    - Select Level
-    - Delete Save Data
+  - Retry
+  - Select Level
+  - Delete Save Data
 
 ## Rules or Goal
 
@@ -32,7 +32,7 @@ GIFs
 
 - PICO-8
 - Visual Studio Code
-    - pollywoggames.pico8-ls
-    - crowoncrowbar.pico8-runner
+  - pollywoggames.pico8-ls
+  - crowoncrowbar.pico8-runner
 - Shrink08
 - Renoiser

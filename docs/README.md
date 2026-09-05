@@ -3,7 +3,7 @@ This directory is intended for game documentation, guides, designs, mechanics, p
 Keep your documentation up to date as your game evolves. Well-documented
 projects are easier to maintain, debug, and expand upon.
 
-## Recommended documents to include:
+## Recommended documents to include
 
 - Game designs (art style, moodboard, sketches, gameplay mechanics, story)
 - Graphics, fonts, assets, sprites, logos, sounds, scripts
@@ -16,7 +16,7 @@ projects are easier to maintain, debug, and expand upon.
 - Contributing guidelines for collaborators
 - Changelog and version history
 
-## For PICO-8 specific documentation, consider including:
+## For PICO-8 specific documentation, consider including
 
 - Sprite and map usage documentation
 - Music and sound effect notes

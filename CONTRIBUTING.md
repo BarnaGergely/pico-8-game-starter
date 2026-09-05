@@ -10,8 +10,8 @@ This document provides guidelines for developers who want to work on this projec
 
 - [Best basic video tutorial for beginners by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Course/)
 - Detailed tutorials about specific topics
-    - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
-    - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
+  - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
+  - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
 - [Official manual](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
 - [More user-friendly documentation](https://nerdyteachers.com/PICO-8/Guide/)
 - [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
@@ -38,16 +38,16 @@ This document provides guidelines for developers who want to work on this projec
 - **Visual Studio Code**: A powerful code editor with many features for developers.
 - **PICO-8 Language Server**: Provides syntax highlighting, code completion, and linting for PICO-8 code (for `.p8` files).
 - **PICO-8 Runner**: Allows you to run PICO-8 carts directly from VSCode on the payed version of PICO-8 console.
-    - To run the cart, use the command palette (`Ctrl+Shift+P` or `Ctrl+F1`) and select `PICO-8: Run Cart`.
-    - If you don't have the payed version, you can still edit the code and run it on the PICO-8 [education edition web player](https://www.pico-8-edu.com/).
-        - Simply drag and drop the edited `.p8` file into the [web player](https://www.pico-8-edu.com/) and run `RUN` command.
+  - To run the cart, use the command palette (`Ctrl+Shift+P` or `Ctrl+F1`) and select `PICO-8: Run Cart`.
+  - If you don't have the payed version, you can still edit the code and run it on the PICO-8 [education edition web player](https://www.pico-8-edu.com/).
+    - Simply drag and drop the edited `.p8` file into the [web player](https://www.pico-8-edu.com/) and run `RUN` command.
 - **Git Integration**: Use the Source Control panel in VSCode to manage your commits, branches, and pull requests.
 
 ### Prerequisites
 
 - [PICO-8](https://www.lexaloffle.com/pico-8.php)
-    - To use the PICO-8 Runner, licensed payed version required
-    - [Education edition](https://www.pico-8-edu.com/) also works, fully functional and free, but not as convenient
+  - To use the PICO-8 Runner, licensed payed version required
+  - [Education edition](https://www.pico-8-edu.com/) also works, fully functional and free, but not as convenient
 - Git for version control
 - Visual Studio Code for advanced code editing and git user interface
 
@@ -61,7 +61,7 @@ This document provides guidelines for developers who want to work on this projec
    - [PICO-8 Language Server](https://marketplace.visualstudio.com/items?itemName=pollywoggames.pico8-ls)
    - [PICO-8 Runner](https://marketplace.visualstudio.com/items?itemName=crowoncrowbar.pico8-runner)
 6. Clone the repository
-6. In the `.vscode/settings.json` file set PICO-8 runner (path to `pico8.exe`) and cart location (path to your PICO-8 cart in the `src/` folder)
+7. In the `.vscode/settings.json` file set PICO-8 runner (path to `pico8.exe`) and cart location (path to your PICO-8 cart in the `src/` folder)
 
 ### LUA Setup
 
@@ -91,23 +91,26 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 ### PICO-8 Specific Guidelines
 
 #### File Organization
+
 - Keep main game logic in `src/main.p8`
 - Split large features into separate `.p8` files
 - Use meaningful file names that describe their purpose
 - Maximum one game concept per file when possible
 
 #### Code Style
+
 - Use **small, but descriptive names** to keep the code readable on the PICO-8 console
-    - Use abridgments, but keep it readable and consistent: `plr` for player, `upd` for update
+  - Use abridgments, but keep it readable and consistent: `plr` for player, `upd` for update
 - Use **lowercase** for all code, comments, and file names
 - Use **snake_case**, if you want to separate words: `plr_speed`, `upd_enemies(input)`
 - Add comments for:
-    - every variable: `-- player speed in pixels per frame`
-    - functions, complex logic and algorithms: `-- update enemies position based on absolute coordinates in pixels`
+  - every variable: `-- player speed in pixels per frame`
+  - functions, complex logic and algorithms: `-- update enemies position based on absolute coordinates in pixels`
 - Comments, tabulation, spaces are free, so use them generously
-    - Its easier to write a few extra lines of comments, than to remember what the code does after a few weeks
+  - Its easier to write a few extra lines of comments, than to remember what the code does after a few weeks
 
 #### Naming Conventions
+
 - **Variables**: `plr_x`, `enemy_count`, `is_jumping`
 - **Functions**: `init_game()`, `upd_plr()`, `draw_ui()`
 - **Sprites**: Use descriptive names in sprite editor
@@ -116,6 +119,7 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 - **Music**: `mus_title`, `mus_level`, `mus_gameover`
 
 #### Performance Guidelines
+
 - Be mindful of the 8192 token limit
 - Optimize sprite usage (128 sprites max)
 - Use efficient algorithms for collision detection
@@ -150,6 +154,7 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 ## Questions?
 
 If you have questions about contributing:
+
 - Check existing issues and discussions
 - Create a new issue with the "question" label
 - Reach out to maintainers
