@@ -4,34 +4,13 @@ This document provides guidelines for developers who want to work on this projec
 
 ## Getting Started
 
-### PICO-8 Tutorials and Resources
+1. Clone the repository to your local machine
+2. Install the required extensions (popup should appear when opening the project in VSCode)
+3. *(Optional) If you have PICO-8 installed, configure the PICO-8 runner and cart location in `.vscode/settings.json`*
+4. Place your PICO-8 game file in the `src/` folder, and your included `.lua` files in the `include/` folder
+5. *(Optional) Update the README.md file with your game name, description, and GIFs*
 
-#### PICO-8 Game Development
-
-- [Best basic video tutorial for beginners by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Course/)
-- Detailed tutorials about specific topics
-  - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
-  - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
-- [Official manual](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
-- [More user-friendly documentation](https://nerdyteachers.com/PICO-8/Guide/)
-- [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
-- [Best payed full course](https://www.spacecatdev.com/pico-8-noob-to-pro)
-
-#### Game design
-
-- [Game Design and Theory course by the creator of The Sims](https://www.masterclass.com/classes/will-wright-teaches-game-design-and-theory)
-- [So You Wanna Make Games?? by Riot Games (creators of LoL)](https://youtube.com/playlist?list=PL42m9XiTqPHJdJuVXO6Vf5ta5D07peiVx&si=171pL1Boisbcf1SO)
-- [Game Design 101 by Game Maker's Toolkit](https://youtube.com/playlist?list=PLc38fcMFcV_vToz9Nvc_YQTNH8hkIQ2uC&si=ih-Mx9b9tYN6kyml)
-- [Game Maker's Toolkit free courses](https://www.youtube.com/@GMTK/playlists)
-- [Udemy payed video courses](https://www.udemy.com/courses/design/game-design/)
-
-#### Pixel art
-
-- [Very basics in 10 mins](https://youtu.be/v-ibXM3xBjg?si=2HXMc35Ripf5cBTM)
-- [Pixel Art Classes by AdamCYounis](https://www.youtube.com/playlist?list=PLLdxW--S_0h4dlWUpl-TzBp-ulqK3NiM_)
-- [Pixel Art 101 by Peter Milko](https://youtube.com/playlist?list=PLmac3HPrav-9UWt-ahViIZxpyQxJ2wPSH&si=VeD5pankdu5uyZeV)
-- [Udemy payed video courses](https://www.udemy.com/topic/pixel-art/)
-- [SpaceCat's pixel art course](https://www.spacecatdev.com/pixel-art-for-game-devs)
+> Tip: If you want the autentic PICO-8 look and feel, you can use  the [PICO-8 Theme for VSCode](https://marketplace.visualstudio.com/items?itemName=mai314.pico-8-theme).
 
 ### Development environment features
 
@@ -57,9 +36,10 @@ This document provides guidelines for developers who want to work on this projec
 2. Install [Git](https://git-scm.com/downloads) with default settings
 3. Install [Visual Studio Code](https://code.visualstudio.com/)
 4. Restart your computer
-5. Install the following VSCode extensions:
+5. Install the required VSCode extensions (popup should appear when opening the project in VSCode):
    - [PICO-8 Language Server](https://marketplace.visualstudio.com/items?itemName=pollywoggames.pico8-ls)
    - [PICO-8 Runner](https://marketplace.visualstudio.com/items?itemName=crowoncrowbar.pico8-runner)
+   - [Line Length Checker](https://marketplace.visualstudio.com/items?itemName=SUPERTSY5.line-length-checker-vscode)
 6. Clone the repository
 7. In the `.vscode/settings.json` file set PICO-8 runner (path to `pico8.exe`) and cart location (path to your PICO-8 cart in the `src/` folder)
 
@@ -79,12 +59,41 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 
 ```
 ├── docs/           # Designs, graphics, docs, guides
-├── include/        # TODO:
+├── include/        # Included external LUA files (.lua files)
 ├── src/            # Main game source files (.p8 files)
-├── CONTRIBUTING.md # TODO:
+├── CONTRIBUTING.md # Guidelines for contributing
 ├── LICENSE         # License
 └── README.md       # Project overview
 ```
+
+## PICO-8 Tutorials and Resources
+
+### PICO-8 Game Development
+
+- [Best basic video tutorial for beginners by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Course/)
+- Detailed tutorials about specific topics
+  - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
+  - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
+- [Official manual](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
+- [More user-friendly documentation](https://nerdyteachers.com/PICO-8/Guide/)
+- [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
+- [Best payed full course](https://www.spacecatdev.com/pico-8-noob-to-pro)
+
+### Game design
+
+- [Game Design and Theory course by the creator of The Sims](https://www.masterclass.com/classes/will-wright-teaches-game-design-and-theory)
+- [So You Wanna Make Games?? by Riot Games (creators of LoL)](https://youtube.com/playlist?list=PL42m9XiTqPHJdJuVXO6Vf5ta5D07peiVx&si=171pL1Boisbcf1SO)
+- [Game Design 101 by Game Maker's Toolkit](https://youtube.com/playlist?list=PLc38fcMFcV_vToz9Nvc_YQTNH8hkIQ2uC&si=ih-Mx9b9tYN6kyml)
+- [Game Maker's Toolkit free courses](https://www.youtube.com/@GMTK/playlists)
+- [Udemy payed video courses](https://www.udemy.com/courses/design/game-design/)
+
+### Pixel art
+
+- [Very basics in 10 mins](https://youtu.be/v-ibXM3xBjg?si=2HXMc35Ripf5cBTM)
+- [Pixel Art Classes by AdamCYounis](https://www.youtube.com/playlist?list=PLLdxW--S_0h4dlWUpl-TzBp-ulqK3NiM_)
+- [Pixel Art 101 by Peter Milko](https://youtube.com/playlist?list=PLmac3HPrav-9UWt-ahViIZxpyQxJ2wPSH&si=VeD5pankdu5uyZeV)
+- [Udemy payed video courses](https://www.udemy.com/topic/pixel-art/)
+- [SpaceCat's pixel art course](https://www.spacecatdev.com/pixel-art-for-game-devs)
 
 ## Development Guidelines
 
@@ -153,7 +162,7 @@ If you want to `#include` `.lua` files, you should set up the VSCode LUA support
 
 ## Questions?
 
-If you have questions about contributing:
+If you have questions, you can:
 
 - Check existing issues and discussions
 - Create a new issue with the "question" label

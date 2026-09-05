@@ -1,10 +1,12 @@
-# PICO-8 game Starter Template
-
-game name
+# PICO-8 game Starter Template - game name
 
 Interesting description
 
 GIFs
+
+## Contributing
+
+You can find more information about how to set up the development environment and contribute to this project in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Controls
 
