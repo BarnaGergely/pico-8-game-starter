@@ -26,8 +26,8 @@ c_flg = {
 --standalone variables--
 
 --data which not resets
---when the game is reseted
---such as highscores
+--when the game is resets
+--such as high scores
 
 highscore = 0
 
@@ -92,7 +92,7 @@ end--upd_plr
 -- draw player
 function draw_plr()
 	spr(plr.spr, plr.x, plr.y, 
-	    plr.w / 8, plr.h / 8)
+		plr.w / 8, plr.h / 8)
 end--draw_plr
 
 -- is player collides with flag
