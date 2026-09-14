@@ -1,171 +1,89 @@
-# Contributing to PICO-8 Game
+# Start Here
 
-This document provides guidelines for developers who want to work on this project.
+This is a small PICO-8 game project. You can use the paid PICO-8 native app or the free [PICO-8 Education web player](https://www.pico-8-edu.com/) to run it.
 
-## Getting Started
+## 1. Open the project
 
-1. Clone the repository to your local machine
-2. Install the required extensions (popup should appear when opening the project in VSCode)
-3. *(Optional) If you have PICO-8 installed, configure the PICO-8 runner and cart location in `.vscode/settings.json`*
-4. Place your PICO-8 game file in the `src/` folder, and your included `.lua` files in the `include/` folder
-5. *(Optional) Update the README.md file with your game name, description, and GIFs*
+Open this folder in [Visual Studio Code](https://code.visualstudio.com/). When VS Code asks about recommended extensions, install them.
 
-> Tip: If you want the autentic PICO-8 look and feel, you can use  the [PICO-8 Theme for VSCode](https://marketplace.visualstudio.com/items?itemName=mai314.pico-8-theme).
+### Useful features of the recommended extensions
 
-### Development environment features
+- PICO-8 code highlighting and helpful errors: [PICO-8 Language Server](https://marketplace.visualstudio.com/items?itemName=pollywoggames.pico8-ls)
+- Run PICO-8 game from VS Code: [PICO-8 Runner](https://marketplace.visualstudio.com/items?itemName=CrowonCrowbar.pico8-runner)
+- Token usage tracker - [PICO-8 Toolkit](https://marketplace.visualstudio.com/items?itemName=Mesgegra.pico-8-toolkit)
+- Rulers and warnings to indicate the size of the PICO-8 screen: [Line Length Checker](https://marketplace.visualstudio.com/items?itemName=SUPERTSY5.line-length-checker-vscode)
+  - *Comment out the `"line-length-checker.lineLength"` setting in `.vscode/settings.json` to disable the `Overlength line` warning.*
 
-- **Visual Studio Code**: A powerful code editor with many features for developers.
-- **PICO-8 Language Server**: Provides syntax highlighting, code completion, and linting for PICO-8 code (for `.p8` files).
-- **PICO-8 Runner**: Allows you to run PICO-8 carts directly from VSCode on the payed version of PICO-8 console.
-  - To run the cart, use the command palette (`Ctrl+Shift+P` or `Ctrl+F1`) and select `PICO-8: Run Cart`.
-  - If you don't have the payed version, you can still edit the code and run it on the PICO-8 [education edition web player](https://www.pico-8-edu.com/).
-    - Simply drag and drop the edited `.p8` file into the [web player](https://www.pico-8-edu.com/) and run `RUN` command.
-- **Git Integration**: Use the Source Control panel in VSCode to manage your commits, branches, and pull requests.
+## 2. Run the game
 
-### Prerequisites
+### Run the game with paid PICO-8
 
-- [PICO-8](https://www.lexaloffle.com/pico-8.php)
-  - To use the PICO-8 Runner, licensed payed version required
-  - [Education edition](https://www.pico-8-edu.com/) also works, fully functional and free, but not as convenient
-- Git for version control
-- Visual Studio Code for advanced code editing and git user interface
+1. Install [PICO-8](https://www.lexaloffle.com/pico-8.php).
+2. In VS Code, press `Ctrl+Shift+P`.
+3. Choose `Run PICO-8 Cartridge` (`Ctrl + Shift + 8`).
 
-### Windows Setup
+> If that command cannot find PICO-8, open `.vscode/settings.json` and change
+`pico8runner.pico8Path` to the location of the installed `pico8.exe` on your system.
+>
+> For example:
+>
+> ```text
+> Failed to run PICO-8: spawn C:\Program Files (x86)\PICO-8\pico8.exe ENOENT
+> ```
 
-1. Install [PICO-8](https://www.lexaloffle.com/pico-8.php), if you bought it
-2. Install [Git](https://git-scm.com/downloads) with default settings
-3. Install [Visual Studio Code](https://code.visualstudio.com/)
-4. Restart your computer
-5. Install the required VSCode extensions (popup should appear when opening the project in VSCode):
-   - [PICO-8 Language Server](https://marketplace.visualstudio.com/items?itemName=pollywoggames.pico8-ls)
-   - [PICO-8 Runner](https://marketplace.visualstudio.com/items?itemName=crowoncrowbar.pico8-runner)
-   - [Line Length Checker](https://marketplace.visualstudio.com/items?itemName=SUPERTSY5.line-length-checker-vscode)
-6. Clone the repository
-7. In the `.vscode/settings.json` file set PICO-8 runner (path to `pico8.exe`) and cart location (path to your PICO-8 cart in the `src/` folder)
+If the game is already open in PICO-8, you can also reload and run the cartridge for PICO-8 with: `Ctrl + R`. So you can edit code in VS Code, save your changes, then switch to PICO-8 and press `Ctrl + R` to test your changes.
 
-### LUA Setup
+### Run the game with Education Edition
 
-If you want to `#include` `.lua` files, you should set up the VSCode LUA support for PICO-8! [More info here](https://www.lexaloffle.com/bbs/?tid=53227)
+1. Open the [PICO-8 Education web player](https://www.pico-8-edu.com/).
+2. Open the `src/` folder in file explorer.
+3. Drag `src/awesome_game.p8` into the page (while the online PICO-8 is in terminal mode).
+4. Type `run` and press Enter to run your game.
 
-### Commiting summary
+## 3. Make a change
 
-1. Make sure your code is working
-2. Save you game (.p8) into the `src/` folder
-3. On the left side of VSCode, click on the Source Control icon (`Ctrl+Shift+G`)
-4. Write a descriptive commit message
-5. Click the `Commit` button and then `Push` to upload your changes
+Use VS Code to edit Lua code. Use PICO-8 to edit sprites, maps, music, and sound effects. After making a change, save it, run the game, and test it.
 
-## Project Structure
+### On the paid native app repeat this workflow:
 
-```
-├── docs/           # Designs, graphics, docs, guides
-├── include/        # Included external LUA files (.lua files)
-├── src/            # Main game source files (.p8 files)
-├── CONTRIBUTING.md # Guidelines for contributing
-├── LICENSE         # License
-└── README.md       # Project overview
-```
+1. Decide what to change.
+2. Edit code in VS Code, or edit visual and audio assets in PICO-8.
+3. Save your work.
+4. Run the game (`Ctrl + Shift + 8` in VS Code or `Ctrl + R` in PICO-8) and test the change.
+5. Fix problems or refine the result, then test again.
 
-## PICO-8 Tutorials and Resources
+### Extra steps for the free web player
 
-### PICO-8 Game Development
+#### If you want to change the code, edit it in VS Code:
+1. Edit the code in VS Code.
+2. Open the `src/` folder in file explorer.
+3. Drag `src/awesome_game.p8` into the page.
+4. Type `run` and press Enter to run your game.
 
-- [Best basic video tutorial for beginners by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Course/)
-- Detailed tutorials about specific topics
-  - [by Nerdy Teachers](https://nerdyteachers.com/PICO-8/Tutorials/)
-  - [by SpaceCat](https://www.youtube.com/playlist?list=PLavIQQGm3RCmPt93jcg4LEQTvoZRFf9l0)
-- [Official manual](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
-- [More user-friendly documentation](https://nerdyteachers.com/PICO-8/Guide/)
-- [Advanced full free courses](https://www.youtube.com/@LazyDevs/playlists)
-- [Best payed full course](https://www.spacecatdev.com/pico-8-noob-to-pro)
+#### If you want to change sprites, maps, music, or sound effects, edit them in PICO-8:
+1. Open the `src/` folder in file explorer.
+2. Drag `src/awesome_game.p8` into the page.
+3. Make the change.
+4. Save your work by typing `save` in the console and pressing Enter. This will download a `.p8` file to your computer. 
+5. Override the existing `src/awesome_game.p8` file with the downloaded file.
 
-### Game design
+Keep changes small so they are easy to test and undo.
 
-- [Game Design and Theory course by the creator of The Sims](https://www.masterclass.com/classes/will-wright-teaches-game-design-and-theory)
-- [So You Wanna Make Games?? by Riot Games (creators of LoL)](https://youtube.com/playlist?list=PL42m9XiTqPHJdJuVXO6Vf5ta5D07peiVx&si=171pL1Boisbcf1SO)
-- [Game Design 101 by Game Maker's Toolkit](https://youtube.com/playlist?list=PLc38fcMFcV_vToz9Nvc_YQTNH8hkIQ2uC&si=ih-Mx9b9tYN6kyml)
-- [Game Maker's Toolkit free courses](https://www.youtube.com/@GMTK/playlists)
-- [Udemy payed video courses](https://www.udemy.com/courses/design/game-design/)
+## Where things go
 
-### Pixel art
+- `src/`: PICO-8 cartridges (`.p8`). Example code included: `src/awesome_game.p8`.
+- `include/`: optional external Lua files.
+- `docs/`: game design notes, docs and assets.
+- `README.md`: your game's instructions and credits.
 
-- [Very basics in 10 mins](https://youtu.be/v-ibXM3xBjg?si=2HXMc35Ripf5cBTM)
-- [Pixel Art Classes by AdamCYounis](https://www.youtube.com/playlist?list=PLLdxW--S_0h4dlWUpl-TzBp-ulqK3NiM_)
-- [Pixel Art 101 by Peter Milko](https://youtube.com/playlist?list=PLmac3HPrav-9UWt-ahViIZxpyQxJ2wPSH&si=VeD5pankdu5uyZeV)
-- [Udemy payed video courses](https://www.udemy.com/topic/pixel-art/)
-- [SpaceCat's pixel art course](https://www.spacecatdev.com/pixel-art-for-game-devs)
+## When you finished commit changes to Git repository
 
-## Development Guidelines
+1. Make sure the game runs from a fresh launch.
+2. Update the controls and description in `README.md`.
+3. In VS Code, open Source Control with `Ctrl+Shift+G`.
+4. Write what you changed, then commit and push.
 
-### PICO-8 Specific Guidelines
+## Need help?
 
-#### File Organization
-
-- Keep main game logic in `src/main.p8`
-- Split large features into separate `.p8` files
-- Use meaningful file names that describe their purpose
-- Maximum one game concept per file when possible
-
-#### Code Style
-
-- Use **small, but descriptive names** to keep the code readable on the PICO-8 console
-  - Use abridgments, but keep it readable and consistent: `plr` for player, `upd` for update
-- Use **lowercase** for all code, comments, and file names
-- Use **snake_case**, if you want to separate words: `plr_speed`, `upd_enemies(input)`
-- Add comments for:
-  - every variable: `-- player speed in pixels per frame`
-  - functions, complex logic and algorithms: `-- update enemies position based on absolute coordinates in pixels`
-- Comments, tabulation, spaces are free, so use them generously
-  - Its easier to write a few extra lines of comments, than to remember what the code does after a few weeks
-
-#### Naming Conventions
-
-- **Variables**: `plr_x`, `enemy_count`, `is_jumping`
-- **Functions**: `init_game()`, `upd_plr()`, `draw_ui()`
-- **Sprites**: Use descriptive names in sprite editor
-- **Maps**: `level_1`, `menu_bg`, `tileset_main`
-- **Sound Effects**: `sfx_jump`, `sfx_coin`, `sfx_enemy_hit`
-- **Music**: `mus_title`, `mus_level`, `mus_gameover`
-
-#### Performance Guidelines
-
-- Be mindful of the 8192 token limit
-- Optimize sprite usage (128 sprites max)
-- Use efficient algorithms for collision detection
-- Minimize unnecessary calculations in `_update()` and `_draw()`
-- Use `_update60()` only when necessary
-
-### Version Control
-
-#### Commit Guidelines
-
-- Use clear, descriptive commit messages
-- Start with a verb in present tense: "Add player movement", "Fix collision bug"
-- Keep commits focused on single changes
-- Reference issues when applicable: "Fix #123: Player falls through platforms"
-- Atomic commits
-
-## Documentation
-
-- Update documentation when adding new features
-- Keep the README.md current with setup instructions
-- Add code comments for complex algorithms
-- Document any external dependencies or tools
-
-## Community Guidelines
-
-- Be respectful and constructive in all interactions
-- Help newcomers learn PICO-8 development
-- Share knowledge and best practices
-- Follow the project's code of conduct
-- Give credit where credit is due
-
-## Questions?
-
-If you have questions, you can:
-
-- Check existing issues and discussions
-- Create a new issue with the "question" label
-- Reach out to maintainers
-
-Thank you for contributing to making this PICO-8 game better! 🎮
+- [PICO-8 manual](https://www.lexaloffe.com/dl/docs/pico-8_manual.html)
+- [PICO-8 Education tutorials](https://nerdyteachers.com/PICO-8/Course/)

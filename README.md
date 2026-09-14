@@ -1,40 +1,36 @@
-# PICO-8 game Starter Template - game name
+# Game Name
 
-Interesting description
+One or two sentences explaining the game.
 
-GIFs
+![Game screenshot or GIF](docs/gameplay.gif)
 
-## Contributing
+## How to make changes?
 
-You can find more information about how to set up the development environment and contribute to this project in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+1. Open this folder in VS Code.
+2. Edit the code in VS Code.
+3. Run the game and test your change in PICO-8 by pressing `Ctrl+Shift+P` and choosing `Run PICO-8 Cartridge` or dragging the `src/awesome_game.p8` to the [free PICO-8 Education web player](https://www.pico-8-edu.com/)
+4. Edit the sprites, map, and sound effects in PICO-8.
+5. Save your work with `save` command in PICO-8 and commit it to Git.
+
+New to this template? Read the [beginner setup guide](CONTRIBUTING.md).
 
 ## Controls
 
-- Dpad (Arrow Keys)
-  - Move
-- X Button (X or M or V Key)
-  - Hold X Button and Dpad: Turn
-  - Release X Button: Generate or Remove Ice
-- O Button (Z or N or C Key)
-  - Undo (Not possible at some levels)
-- Pause Menu (Enter or P Key)
-  - Retry
-  - Select Level
-  - Delete Save Data
+- `Arrow keys`: move
+- `X`: action 1
+- `C`: action 2
+- `Enter`: pause
 
-## Rules or Goal
+*Replace these controls with your game's controls.*
 
-## Tips & Hints
+## Goal
+
+*Describe what the player is trying to do.*
 
 ## Credits
 
-## Version History
+*List the people, tools, and assets used in the game.*
 
-## Tools used
+## License
 
-- PICO-8
-- Visual Studio Code
-  - pollywoggames.pico8-ls
-  - crowoncrowbar.pico8-runner
-- Shrink08
-- Renoiser
+*Describe the license for your game. For example, "This game is licensed under the MIT License."*
